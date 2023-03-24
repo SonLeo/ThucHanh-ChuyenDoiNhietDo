@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: fit-content;
+        margin: 32px auto;
+        padding: 0 20px;
+        border-radius: 8px;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .temperature {
+        display: inline-block;
+        width: 80px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Temperature Converter</h2>
+            <p><i>Type a value in the Fahrenheit feild to convert the value to Celcius</i></p>
+        </div>
+        
+        <div class="convert">
+            <label for="inputFahrenheit">
+                <span class="temperature">Fahrenheit</span>: 
+                <input type="number" name="inputFahrenheit" id="inputFahrenheit" placeholder="Enter Fahrenheit" oninput="temperatureConvert(this.value)" onchange="temperatureConvert(this.value)">
+            </label>
+        
+            <p><span class="temperature">Celcius</span>: <span id="result"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function temperatureConvert(valueInput) {
+            valueInput = parseFloat(valueInput);
+            document.getElementById("result").innerHTML = ((valueInput - 32) / 1.8).toFixed(2);
+        }
+    </script>
+</body>
+</html>
